@@ -5,12 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.liuhedev</groupId>
-    <artifactId>spring</artifactId>
+    <artifactId>springTest</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>service-provider</module>
         <module>service-consumer</module>
+        <module>service-eureka</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
