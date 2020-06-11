@@ -1,0 +1,13 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/students
+    username: root
+    password: root
+    # 不加此配置driver-class-name，会报错Failed to configure a DataSource: no embedded datasource could be configured
+    driver-class-name: com.mysql.jdbc.Driver
+
+mybatis:
+  type-aliases-package: com.liuhedev.service.pojo
