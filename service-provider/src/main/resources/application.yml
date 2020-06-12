@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: 8082
 
 spring:
   application:
@@ -17,4 +17,10 @@ mybatis:
 eureka:
   client:
     service-url: # EurekaServer地址
-      defaultZone: http://127.0.0.1:10086/eureka
+      defaultZone: http://127.0.0.1:10086/eureka,http://127.0.0.1:10087/eureka
+  instance:
+    #    默认情况下每个30秒服务会向注册中心发送一次心跳，证明自己还活着。如果超过90秒没有发送心跳，EurekaServer就会认为该服务宕机，会从服务列表中移除，这两个值在生产环境不要修改，默认即可。
+    #    服务失效时间，默认值90秒
+    lease-expiration-duration-in-seconds: 10 # 10秒即过期
+    #    服务续约(renew)的间隔
+    lease-renewal-interval-in-seconds: 5 # 5秒一次心跳

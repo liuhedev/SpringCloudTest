@@ -1,5 +1,5 @@
 server:
-  port: 10086
+  port: 10087
 spring:
   application:
     name: eureka-server # 应用名称，会在Eureka中显示
@@ -7,4 +7,9 @@ spring:
 eureka:
   client:
     service-url: # EurekaServer的地址，现在是自己的地址，如果是集群，需要加上其它Server的地址。
-      defaultZone: http://127.0.0.1:${server.port}/eureka
+      # defaultZone: http://127.0.0.1:${server.port}/eureka
+      defaultZone: http://127.0.0.1:10086/eureka
+  server:
+    #    当服务进行正常关闭操作时，它会触发一个服务下线的REST请求给Eureka Server，告诉服务注册中心：“我要下线了”。服务中心接受到请求之后，将该服务置为下线状态。
+    #    但是有些时候，我们的服务提供方并不一定会正常下线，可能因为内存溢出、网络故障灯原因导致无法正常工作，Eureka Server需要将这样的服务剔除出服务列表。因此，他会开启一个定时任务，每隔默认60秒对所有失效的服务（超过90秒未响应）进行剔除。
+    eviction-interval-timer-in-ms: 10000
