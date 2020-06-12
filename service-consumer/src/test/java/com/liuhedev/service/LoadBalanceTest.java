@@ -19,6 +19,12 @@ public class LoadBalanceTest {
     @Autowired
     private RibbonLoadBalancerClient client;
 
+    //    Ribbon默认的负载均衡策略是简单的轮询，可以在application.yml配置负载均衡策略，轮询或者随机
+//    service-provider:
+//    ribbon:
+//    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule或者com.netflix.loadbalancer.RoundRobinRule
+//    格式是：{服务名称}.ribbon.NFLoadBalancerRuleClassName，值就是IRule的实现类。
+
     @Test
     public void testLoadBalance() {
         for (int i = 0; i < 100; i++) {

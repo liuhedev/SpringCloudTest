@@ -18,6 +18,12 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public User queryById(Long id) {
+        // 模拟服务超时，触发服务降级
+//        try {
+//            Thread.sleep(6000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         return this.userMapper.selectByPrimaryKey(id);
     }
 }
