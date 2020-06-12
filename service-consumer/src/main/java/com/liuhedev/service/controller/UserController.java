@@ -18,7 +18,6 @@ public class UserController {
     private RestTemplate restTemplate;
 
     @GetMapping
-    @ResponseBody
     public User queryUserById(@RequestParam("id") Long id) {
         User user = this.restTemplate.getForObject("http://localhost:8081/user/" + id, User.class);
         return user;

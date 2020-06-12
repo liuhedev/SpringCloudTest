@@ -2,12 +2,19 @@ server:
   port: 8081
 
 spring:
+  application:
+    name: service-provider # 应用名称，注册到eureka后的服务名称
   datasource:
-    url: jdbc:mysql://localhost:3306/students
+    url: jdbc:mysql://localhost:3306/students?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
     username: root
     password: root
     # 不加此配置driver-class-name，会报错Failed to configure a DataSource: no embedded datasource could be configured
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
 mybatis:
   type-aliases-package: com.liuhedev.service.pojo
+
+eureka:
+  client:
+    service-url: # EurekaServer地址
+      defaultZone: http://127.0.0.1:10086/eureka
