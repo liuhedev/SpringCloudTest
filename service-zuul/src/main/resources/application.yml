@@ -6,6 +6,28 @@ spring:
 
 zuul:
   routes:
-    service-provider: # 这里是路由id，随意写
-      path: /service-provider/** # 这里是映射路径
-      url: http://127.0.0.1:8081 # 映射路径对应的实际url地址
+    #    service-provider: # 这里是路由id，随意写
+    #      path: /service-provider/** # 这里是映射路径
+    #      # url: http://127.0.0.1:8081 # 映射路径对应的实际url地址，如果同一服务有多个实例的话，这样做显然就不合理了。
+    #      serviceId: service-provider # 指定服务名称
+    service-provider: /service-provider/** # 映射路径，这里可以省略serviceId配置
+
+#zuul部署上之后，Zuul中默认就已经集成了Ribbon负载均衡和Hystrix熔断机制。但是所有的超时策略都是走的默认值，比如熔断超时时间只有1S，很容易就触发了。错误信息：o.s.c.n.z.filters.post.SendErrorFilter   : Error during filtering
+#ribbon的超时时间
+ribbon:
+  ReadTimeout: 60000
+  ConnectTimeout: 60000
+
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+eureka:
+  client:
+    registry-fetch-interval-seconds: 5 # 获取服务列表的周期：5s
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka

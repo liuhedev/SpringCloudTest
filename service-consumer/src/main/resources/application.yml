@@ -30,6 +30,7 @@ hystrix:
 ribbon:
   ReadTimeout: 60000
   ConnectTimeout: 60000
+
 feign:
   hystrix:
     enable: true # 开启feign的熔断功能，默认情况是关闭的，但是feign的fallback配置不像hystrix的那样简单
