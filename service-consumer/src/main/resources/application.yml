@@ -24,13 +24,13 @@ hystrix:
     requestVolumeThreshold: 10 #触发熔断的最小请求次数，默认20
     sleepWindowInMilliseconds: 10000 #休眠时长，默认是5000毫秒
     errorThresholdPercentage: 50 #触发熔断的失败请求最小占比，默认50%
-#
-#feign:
-#  hystrix:
-#    enable: true # 开启feign的熔断功能，默认情况是关闭的，但是feign的fallback配置不像hystrix的那样简单
 
 #ribbon的超时时间
-#因为feign默认时间是1s，配置成3秒后就解决了该问题
+#因为feign默认时间是1s，配置成60秒后就解决：Feign一直提示Read timed out executing
 ribbon:
-  ReadTimeout: 3000
-  ConnectTimeout: 3000
+  ReadTimeout: 60000
+  ConnectTimeout: 60000
+feign:
+  hystrix:
+    enable: true # 开启feign的熔断功能，默认情况是关闭的，但是feign的fallback配置不像hystrix的那样简单
+
