@@ -12,6 +12,8 @@ zuul:
     #      serviceId: service-provider # 指定服务名称
     service-provider: /service-provider/** # 映射路径，这里可以省略serviceId配置
 
+  prefix: /gateway # 添加路由前缀，可以省略
+
 #zuul部署上之后，Zuul中默认就已经集成了Ribbon负载均衡和Hystrix熔断机制。但是所有的超时策略都是走的默认值，比如熔断超时时间只有1S，很容易就触发了。错误信息：o.s.c.n.z.filters.post.SendErrorFilter   : Error during filtering
 #ribbon的超时时间
 ribbon:
