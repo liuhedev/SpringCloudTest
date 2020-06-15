@@ -16,3 +16,10 @@ spring cloud study
 
 1. @EnableDiscoveryClient 注解是基于 spring-cloud-commons 依赖，并且在classpath中实现； 
 2. @EnableEurekaClient 注解是基于 spring-cloud-netflix 依赖，只能为eureka作用；
+
+
+# Zuul
+## 过滤器
+  - 请求鉴权：一般放在pre类型，如果发现没有访问权限，直接就拦截了
+  - 异常处理：一般会在error类型和post类型过滤器中结合来处理。
+  - 服务调用时长统计：pre和post结合使用。
