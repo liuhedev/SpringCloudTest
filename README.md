@@ -1,5 +1,9 @@
 # SpringCloudTest
 spring cloud study
+Spring Cloud 版本号说明
+* Spring Cloud 版本用的是单词而不是数字，为了避免子版本号与子项目版本号混淆。
+* 采用伦敦的地铁站名称来作为版本号的命名，根据首字母排序，字母顺序靠后的版本号 越大。
+
 
 
 @RequestMapping 是一个用来处理请求地址映射的注解，可用于类或方法上。用于类上，表示类中的所有响应请求的方法都是以该地址作为父路径；用于方法上，表示在类的父路径下追加方法上注解中的地址将会访问到该方法。例如.
@@ -23,3 +27,19 @@ spring cloud study
   - 请求鉴权：一般放在pre类型，如果发现没有访问权限，直接就拦截了
   - 异常处理：一般会在error类型和post类型过滤器中结合来处理。
   - 服务调用时长统计：pre和post结合使用。
+
+[jdbc根据mysql版本不同，驱动不同](https://blog.csdn.net/superdangbo/article/details/78732700)
+`spring:
+  application:
+    name: service-provider # 应用名称，注册到eureka后的服务名称
+  datasource:
+    url: jdbc:mysql://localhost:3306/students?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: root
+    password: root
+    # 不加此配置driver-class-name，会报错Failed to configure a DataSource: no embedded datasource could be configured
+    #    1、JDBC连接Mysql5 com.mysql.jdbc.Driver:
+    #    2、JDBC连接Mysql6 com.mysql.cj.jdbc.Driver， 需要指定时区serverTimezone:
+    driver-class-name: com.mysql.jdbc.Driver
+`
+
+[理解spring-boot-starter-parent](https://www.jianshu.com/p/628acadbe3d8)
