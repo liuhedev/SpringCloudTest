@@ -17,6 +17,7 @@ public class RestClientConfig {
     @Bean
     //开启负载均衡
     @LoadBalanced
+    // Eureka中已经集成了Ribbon
     public RestTemplate getRestClient() {
         return new RestTemplate();
     }

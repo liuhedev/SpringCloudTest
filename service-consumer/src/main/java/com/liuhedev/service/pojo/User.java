@@ -1,6 +1,7 @@
 package com.liuhedev.service.pojo;
 
 import lombok.Getter;
+import lombok.Setter;
 
 
 /**
@@ -8,6 +9,7 @@ import lombok.Getter;
  * @date 2020/06/11
  */
 @Getter
+@Setter
 public class User {
 
     private Long id;

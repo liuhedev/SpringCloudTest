@@ -14,6 +14,8 @@ import org.springframework.web.client.RestTemplate;
 import java.util.List;
 
 /**
+ * 使用RestTemplate作为http客户端
+ *
  * @author liuhe
  * @date 2020/06/11
  */
