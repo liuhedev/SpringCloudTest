@@ -23,3 +23,4 @@
 hs_err_pid*
 SpringCloudTest.iml
 service-provider/target/classes/application.yml
+*/target/*
