@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: springtest-config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/liuhedev/SpringTestConfig.git
+server:
+  port: 12000
